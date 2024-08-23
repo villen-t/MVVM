@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.villen.mvvm.MainViewModel" />
+
+        <import type="com.villen.mvvm.bean.Banner" />
+
+        <variable
+            name="vm"
+            type="MainViewModel" />
+
+        <variable
+            name="banner"
+            type="Banner" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/btn_banner_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> vm.getNetworkBanner()}"
+            android:text="@string/get_network_info" />
+
+        <EditText
+            android:id="@+id/et_banner_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_change_data"
+            android:text="@={banner.title}" />
+
+        <TextView
+            android:id="@+id/tv_banner_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{banner.title}" />
+
+    </LinearLayout>
+</layout>
